@@ -41,6 +41,7 @@ class Dev(Configuration):
         },
     }
 
+    INTERNAL_IPS = ["192.168.11.179"]
     ALLOWED_HOSTS = ['*']
     X_FRAME_OPTIONS = 'ALLOW-FROM ' + os.environ.get('CODIO_HOSTNAME') + '-8000.codio.io'
     CSRF_COOKIE_SAMESITE = None
@@ -54,6 +55,7 @@ class Dev(Configuration):
     # Application definition
 
     INSTALLED_APPS = [
+        'debug_toolbar',
         'crispy_forms',
         'crispy_bootstrap5',
         'django.contrib.admin',
@@ -66,6 +68,7 @@ class Dev(Configuration):
     ]
 
     MIDDLEWARE = [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
