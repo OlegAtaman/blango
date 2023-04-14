@@ -10,7 +10,7 @@ from blango_auth.forms import BlangoRegistrationForm
 
 print(f"Time zone: {settings.TIME_ZONE}")
 urlpatterns = [
-    path("api/v1/", include("blog.api_urls")),
+    path("api/v1/", include("blog.api.urls")),
     path('admin/', admin.site.urls),
     path('', blog.views.index),
     path('ip/', blog.views.get_ip),
